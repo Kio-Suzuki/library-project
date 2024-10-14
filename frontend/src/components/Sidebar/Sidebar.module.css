@@ -32,6 +32,11 @@
   height: 3em;
 }
 
+.links:hover {
+  background-color: #088242;
+  color: #FFFFFF;
+}
+
 .icon {
   font-size: 2em;
   margin-right: 0.5em;

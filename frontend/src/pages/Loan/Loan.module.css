@@ -17,9 +17,18 @@
 .main {
   grid-area: main;
   display: grid;
-  grid-template-rows: 5% 30% 65%; 
+  grid-template-rows: 10% 5% 5% 80%;
   grid-template-areas: 
     "searchbar"
-    "cards"
-    "books";
+    "titlebar"
+    "columns"
+    "loans";
+}
+
+.searchbar {
+  grid-area: searchbar;
+}
+
+.titlebar {
+  grid-area: titlebar;
 }

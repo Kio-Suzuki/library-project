@@ -1,8 +1,8 @@
 .columnsContainer {
   display: grid;
-  grid-template-columns: 10% 25% 25% 15% 15% 10%;
+  grid-template-columns: 5% 25% 25% 15% 15% 10%;
   grid-template-areas: 
-    "id name email telephone date buttons";
+    "id name title dateloan datereturn buttons";
   color: black;
   font-weight: bold;
   width: 90%;

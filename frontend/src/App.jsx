@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import Users from "./pages/Users/Users";
 import Books from "./pages/Books/Books";
 import Loan from "./pages/Loan/Loan";
+import './App.css';
 
 function App() {
   

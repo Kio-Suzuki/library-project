@@ -17,7 +17,7 @@
 .main {
   grid-area: main;
   display: grid;
-  grid-template-rows: 5% 5% 5% 85%; 
+  grid-template-rows: 10% 5% 5% 80%; 
   grid-template-areas: 
     "searchbar"
     "titlebar"
@@ -27,8 +27,10 @@
 
 .searchbar {
   grid-area: searchbar;
+  
 }
 
 .titlebar {
   grid-area: titlebar;
+  
 }
