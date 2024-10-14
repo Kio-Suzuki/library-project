@@ -1,11 +1,11 @@
 import Sidebar from '../../components/Sidebar/Sidebar';
 import Searchbar from '../../components/Searchbar/Searchbar';
+import axios from 'axios';
 import styles from './Users.module.css';
 import Titlebar from '../../components/TitleBar/Titlebar';
 import Userlist from '../../components/Userlist/Userlist';
 import Columnsusers from '../../components/ColumnsUsers/Columnsusers';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 
 function Users() {
 
@@ -16,6 +16,7 @@ function Users() {
       try {
         const response = await axios.get('http://localhost:8080/v1/allUsers');
         setUsers(response.data);
+        console.log(response.data);
       } catch (error) {
         console.error('Error:', error);
       }
@@ -33,14 +34,14 @@ function Users() {
           <Searchbar />
         </div>
         <div className={styles.titlebar}> 
-          <Titlebar Title="Users" buttonTitle='ADD USER'/>
+          <Titlebar Title="Users" />
         </div>
         <div className={styles.columnsContainer}>
           <Columnsusers />
         </div>
         <div className={styles.userlistContainer}>
           {users.map((user) => (
-            <Userlist key={user.id} id={user.id} user={user.name} email={user.email} telephone={user.telephone} date={user.registraiondate} />
+            <Userlist key={user.id} id={user.id} user={user.name} email={user.email} telephone={user.telephone} date={user.registrationdate} />
           ))}
         </div>
       </div>

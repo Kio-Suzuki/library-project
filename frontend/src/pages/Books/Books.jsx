@@ -14,8 +14,9 @@ function Books() {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const response = await axios.get('http://localhost:8080/v1/allUsers');
+        const response = await axios.get('http://localhost:8080/v1/allBooks');
         setBooks(response.data);
+        console.log(response)
       } catch (error) {
         console.error('Error:', error);
       }
@@ -33,14 +34,14 @@ function Books() {
           <Searchbar />
         </div>
         <div className={styles.titlebar}> 
-          <Titlebar Title="Books" buttonTitle='ADD BOOK'/>
+          <Titlebar Title="Users" />
         </div>
         <div className={styles.columnsContainer}>
           <Columnsbooks />
         </div>
         <div className={styles.userlistContainer}>
           {books.map((book) => (
-            <Booklist key={book.id} id={book.id} title={book.title} author={book.author} isbn={book.isbn} category={book.category} publishedDate={book.publishedDate} />
+            <Booklist key={book.id} id={null} title={book.title} author={book.author} isbn={book.isbn} category={book.category} publishDate={book.publishDate} />
           ))}
         </div>
       </div>
