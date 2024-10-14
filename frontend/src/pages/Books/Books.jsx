@@ -1,6 +1,6 @@
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar";
-import Titlebar from "../../components/TitleBar/Titlebar";
+import Titlebarbooks from "../../components/TitleBarBooks/Titlebarbooks";
 import Booklist from "../../components/Booklist/Booklist";
 import styles from "./Books.module.css";
 import Columnsbooks from "../../components/ColumnsBooks/Columnsbooks";
@@ -34,7 +34,7 @@ function Books() {
           <Searchbar />
         </div>
         <div className={styles.titlebar}> 
-          <Titlebar Title="Users" />
+          <Titlebarbooks Title="Books" buttonTitle={"ADD BOOK"}/>
         </div>
         <div className={styles.columnsContainer}>
           <Columnsbooks />

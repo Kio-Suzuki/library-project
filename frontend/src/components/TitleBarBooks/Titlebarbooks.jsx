@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import styles from './Titlebar.module.css';
-import Modaladduser from '../ModalAddUser/Modaladduser';
+import styles from './Titlebarbooks.module.css';
+import Modaladdbook from '../ModalAddBook/Modaladdbook';
 
-function Titlebar({Title, buttonTitle}) {
+function Titlebarbooks({Title, buttonTitle}) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -23,9 +23,9 @@ function Titlebar({Title, buttonTitle}) {
       >
         {buttonTitle}
       </button>
-      <Modaladduser isOpen={isModalOpen} closeModal={closeModal} />
+      <Modaladdbook isOpen={isModalOpen} closeModal={closeModal} />
     </div>
   )
 }
 
-export default Titlebar
+export default Titlebarbooks

@@ -5,21 +5,21 @@ import styles from './Modaladduser.module.css';
 function Modaladduser({ isOpen, closeModal }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
+  const [telephone, setTelephone] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
       name,
       email,
-      phone,
+      telephone,
     };
     try {
       const response = await axios.post('http://localhost:8080/v1/saveUser', newUser);
       console.log(response);
       setName('');
       setEmail('');
-      setPhone('');
+      setTelephone('');
     } catch (error) {
       console.error(error);
     }
@@ -49,8 +49,8 @@ function Modaladduser({ isOpen, closeModal }) {
           <input 
             className={styles.input}
             type="text"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            value={telephone}
+            onChange={(e) => setTelephone(e.target.value)}
           />
         </div>
         <div className={styles.buttons}>

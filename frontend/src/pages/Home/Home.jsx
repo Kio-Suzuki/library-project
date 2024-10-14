@@ -7,8 +7,11 @@ import Searchbar from '../../components/Searchbar/Searchbar';
 import Card from '../../components/Card/Card';
 import Books from '../../components/Books/Books';
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Home() {
+
+  const [books, setBooks] = useState([]);
   
   return (
     <div className={styles.mainContainer}>
@@ -17,7 +20,7 @@ function Home() {
       </div>
       <div className={styles.main}> 
         <div className={styles.searchbar}> 
-          <Searchbar />
+          <Searchbar setBooks={setBooks}/>
         </div>
         <div className={styles.cards}> 
           <Link to="/users">
@@ -35,7 +38,7 @@ function Home() {
             <h2>Recommendation</h2>
           </div>
           <div className={styles.booksCards}>
-            <Books />
+            <Books books={books}/>
           </div> 
         </div>
       </div>

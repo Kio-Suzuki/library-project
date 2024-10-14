@@ -59,7 +59,7 @@ function Modaladdbook({ isOpen, closeModal }) {
             value={isbn}
             onChange={(e) => setIsbn(e.target.value)}
           />
-          <label className={styles.label}>CATEGORY:</label>
+          <label className={styles.label}>Category:</label>
           <input 
             className={styles.input}
             type="text"

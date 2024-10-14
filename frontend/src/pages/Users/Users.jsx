@@ -2,10 +2,10 @@ import Sidebar from '../../components/Sidebar/Sidebar';
 import Searchbar from '../../components/Searchbar/Searchbar';
 import axios from 'axios';
 import styles from './Users.module.css';
-import Titlebar from '../../components/TitleBar/Titlebar';
 import Userlist from '../../components/Userlist/Userlist';
 import Columnsusers from '../../components/ColumnsUsers/Columnsusers';
 import { useEffect, useState } from 'react';
+import Titlebaruser from '../../components/TitleBarUser/Titlebaruser';
 
 function Users() {
 
@@ -22,7 +22,7 @@ function Users() {
       }
     };
     fetchUsers();
-  }, []);
+  }, [users]);
 
   return (
     <div className={styles.mainContainer}>
@@ -34,7 +34,7 @@ function Users() {
           <Searchbar />
         </div>
         <div className={styles.titlebar}> 
-          <Titlebar Title="Users" />
+          <Titlebaruser Title="Users" buttonTitle={'ADD USER'}/>
         </div>
         <div className={styles.columnsContainer}>
           <Columnsusers />

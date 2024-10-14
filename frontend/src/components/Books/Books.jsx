@@ -1,33 +1,35 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
 import styles from './Books.module.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import axios from 'axios';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-function Books() {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function loadBooks() {
-      try {
-        const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:adventure&key=API_KEY`);
-        setBooks(response.data.items);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-        setLoading(false);
-      }
-    }
-    loadBooks();
-  }, []);
-
-  if (loading) {
-    return <div>Loading...</div>;
+function Books({ books }) {
+  
+  if (books.length === 0) {
+    return <div>No books found</div>;
   }
+
+  const handleSubmit = async (book) => {
+    const newBook = {
+      title: book.volumeInfo.title, 
+      author: book.volumeInfo.authors?.join(', '),
+      isbn: book.volumeInfo.industryIdentifiers[0]?.identifier || 'N/A', // Fallback se não houver ISBN
+      category: book.volumeInfo.categories?.join(', ') || 'N/A',
+      publishedDate: book.volumeInfo.publishedDate || 'N/A',
+    };
+
+    console.log(newBook);
+
+    try {
+      const response = await axios.post('http://localhost:8080/v1/savebook', newBook);
+      console.log(response);
+    } catch (error) {
+      console.error('Error saving the book:', error);
+    }
+  };
 
   return (
     <div className={styles.booksContainer}>
@@ -47,7 +49,15 @@ function Books() {
                 <h2>{book.volumeInfo.title}</h2>
                 <span>{book.volumeInfo.authors?.join(', ')}</span>
               </div>
-              <button className={styles.cardButton}>ADD BOOK</button>
+              <div className={styles.buttonContainer}>
+                <button 
+                  className={styles.cardButton} 
+                  onClick={() => handleSubmit(book)}
+                >
+                  ADD BOOK
+                </button>
+              </div>
+              
             </div>
           </SwiperSlide>
         ))}

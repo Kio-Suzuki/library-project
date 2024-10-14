@@ -1,6 +1,6 @@
 import Sidebar from "../../components/Sidebar/Sidebar";
 import Searchbar from "../../components/Searchbar/Searchbar";
-import Titlebar from "../../components/TitleBar/Titlebar";
+import Titlebaruser from "../../components/TitleBarUser/Titlebaruser";
 import styles from "./Loan.module.css";
 import Loanlist from "../../components/Loanlist/Loanlist";
 import Columnloans from "../../components/ColumnsLoans/Columnloans";
@@ -16,7 +16,7 @@ function Loan() {
           <Searchbar />
         </div>
         <div className={styles.titlebar}> 
-          <Titlebar Title="Loans" />
+          <Titlebaruser Title="Loans" />
         </div>
         <div className={styles.columnsContainer}>
           <Columnloans />
